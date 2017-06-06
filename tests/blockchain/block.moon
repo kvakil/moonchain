@@ -38,6 +38,5 @@ describe 'Block tests', ->
 
     it 'can be converted to and from a string', ->
         b1 = Block 'Test Data'
-        b2 = Block!
-        b2\from_string(tostring b1)
+        b2 = Block.from_string(tostring b1)
         assert.are.same b1, b2
