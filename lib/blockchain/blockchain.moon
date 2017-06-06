@@ -38,10 +38,7 @@ class Blockchain
 
     --- appends data at the end of the Blockchain, may invalidate
     -- @tparam string data the data to append
-    append: (data) =>
-        previous = @blocks[#@blocks]
-        tail = Block data
-        @blocks[#@blocks + 1] = tail
+    append: (data) => table.insert @blocks, Block data
 
     --- returns the number of blocks in this chain
     -- @treturn int the number of blocks in this chain
