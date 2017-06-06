@@ -3,20 +3,22 @@
 -- @author Keyhan Vakil
 -- @license MIT
 -- @see Chain
-module "blockchain.block", package.seeall
+module "lib.blockchain.block", package.seeall
 export ^
 
-class Block
-    hash: => evp.digest "sha1", @__tostring!
+crypto = require "crypto"
 
-    __tostring: =>
-        string = 'Block['
-        string ..= @index .. '\n'
-        string ..= @prev_hash .. '\n'
-        string ..= @timestamp .. '\n'
-        string ..= @data .. '\n'
-        string ..= @nonce .. '\n'
-        string ..= ']'
-        string
+class Block
+    new: (previous, data, nonce=0) =>
+        @index = previous.index + 1
+        @prev_hash = previous\hash!
+        @data = data
+        @nonce = nonce
+
+    hash: => crypto.digest "sha1", tostring @
+
+    __tostring: => "Block[#{@index}, #{@prev_hash}, #{@data}, #{@nonce}]"
 
     difficulty: => #(@hash!\match('^0*'))
+
+    set_nonce: (new_nonce) => @nonce = new_nonce
