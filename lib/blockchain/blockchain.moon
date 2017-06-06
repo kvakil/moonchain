@@ -2,10 +2,10 @@
 -- @classmod Blockchain
 -- @author Keyhan Vakil
 -- @license MIT
-module "lib.blockchain.blockchain", package.seeall
+module 'lib.blockchain.blockchain', package.seeall
 
-Block = require "lib.blockchain.block"
-Constants = require "lib.blockchain.constants"
+Block = require 'lib.blockchain.block'
+Constants = require 'lib.blockchain.constants'
 
 class Blockchain
     --- creates a new Blockchain starting from the Genesis block
@@ -16,7 +16,7 @@ class Blockchain
     -- @treturn Blockchain the new blockchain
     @from_string: (str) ->
         with Blockchain!
-            for block_string in str\gfind("(.-)\n")
+            for block_string in str\gfind('(.-)\n')
                 table.insert .blocks, Block.from_string(block_string)
 
     --- checks if this Blockchain is valid

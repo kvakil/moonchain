@@ -2,10 +2,10 @@
 -- @classmod Block
 -- @author Keyhan Vakil
 -- @license MIT
-module "lib.blockchain.block", package.seeall
+module 'lib.blockchain.block', package.seeall
 
-crypto = require "crypto"
-Constants = require "lib.blockchain.constants"
+crypto = require 'crypto'
+Constants = require 'lib.blockchain.constants'
 
 class Block
     --- creates a new block with the given data
@@ -25,7 +25,7 @@ class Block
 
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
-    hash: => crypto.digest "sha1", tostring @
+    hash: => crypto.digest 'sha1', tostring @
 
     --- returns the string representation of this block
     -- @treturn string the string representation of this block

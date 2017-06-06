@@ -2,9 +2,9 @@
 -- @module constants
 -- @author Keyhan Vakil
 -- @license MIT
-module "lib.blockchain.constants", package.seeall
+module 'lib.blockchain.constants', package.seeall
 
-Block = require "lib.blockchain.block"
+Block = require 'lib.blockchain.block'
 
 {
     DIFFICULTY: 3 -- the difficulty of the blockchain
