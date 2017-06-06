@@ -15,8 +15,8 @@ class Block
         @data = data
         @nonce = -1
 
-    --- creates a new block using a string
-    -- @tparam string str a string from `tostring`
+    --- creates block from string
+    -- (WARNING: ldoc will incorrectly document this)
     -- @treturn Block a new block with the same `tostring`
     @from_string: (str) ->
         with Block!
