@@ -11,6 +11,14 @@ class Blockchain
     --- creates a new Blockchain starting from the Genesis block
     new: => @blocks = { [1]: Constants.GENESIS }
 
+    --- creates chain from string
+    -- (WARNING: ldoc will incorrectly document this)
+    -- @treturn Blockchain the new blockchain
+    @from_string: (str) ->
+        with Blockchain!
+            for block_string in str\gfind("(.-)\n")
+                table.insert .blocks, Block.from_string(block_string)
+
     --- checks if this Blockchain is valid
     -- @treturn bool if this chain is valid
     valid: =>
@@ -43,6 +51,6 @@ class Blockchain
     -- @treturn string a string representation of this blockchain
     __tostring: =>
         string = ''
-        for _, block in ipairs @blocks
-            string ..= "#{block}\n"
+        for i = 2, #@blocks
+            string ..= "#{@blocks[i]}\n"
         return string
