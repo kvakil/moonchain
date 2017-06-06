@@ -40,3 +40,10 @@ describe 'Block tests', ->
         b1 = Block 'Test Data'
         b2 = Block.from_string(tostring b1)
         assert.are.same b1, b2
+
+    it 'preserves all data when converting', ->
+        b1 = with Block 'Test Data'
+            .prev_hash = 'deadbeef'
+            \fix!
+        b2 = Block.from_string(tostring b1)
+        assert.are.same b1, b2
