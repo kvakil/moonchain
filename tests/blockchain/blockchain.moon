@@ -9,11 +9,17 @@ describe 'Blockchain tests', ->
 
     it 'remains valid after appends', ->
         with Blockchain!
-            for i = 1, 5 do \append(i)
+            for i = 1, 5
+                \append(i)
+            \fix!
             assert.True \valid!
 
     it 'detects changed blocks', ->
         with Blockchain!
-            for i = 1, 5 do \append(i)
+            for i = 1, 5
+                \append(i)
+            \fix!
             .blocks[3].data = 4
             assert.False \valid!
+            \fix!
+            assert.True \valid!
