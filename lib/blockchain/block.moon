@@ -17,6 +17,7 @@ class Block
 
     --- creates a new block using a string
     -- @tparam string str a string from `tostring`
+    -- @treturn Block a new block with the same `tostring`
     @from_string: (str) ->
         with Block!
             .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (.*)%]')
