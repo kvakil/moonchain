@@ -15,6 +15,12 @@ class Block
         @data = data
         @nonce = -1
 
+    --- creates a new block using a string
+    -- @tparam string str a string from `tostring`
+    from_string: (str) =>
+        @prev_hash, @data, @nonce = str\match('Block%[(%x*), ([^,]*), (.*)%]')
+        @nonce = tonumber @nonce
+
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
     hash: => crypto.digest "sha1", tostring @

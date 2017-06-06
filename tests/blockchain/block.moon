@@ -35,3 +35,9 @@ describe 'Block tests', ->
             new: => nil
             __tostring: => 'i'
         assert.are.same 1, MockBlock!\difficulty!
+
+    it 'can be converted to and from a string', ->
+        b1 = Block 'Test Data'
+        b2 = Block!
+        b2\from_string(tostring b1)
+        assert.are.same b1, b2
