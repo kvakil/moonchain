@@ -36,6 +36,6 @@ class Block
     difficulty: => #(@hash!\match('^0*'))
 
     --- finds a nonce such that this block's difficultly is high enough
-    fix: =>
+    mine: =>
         @nonce = 0
         while @difficulty! < Constants.DIFFICULTY do @nonce += 1

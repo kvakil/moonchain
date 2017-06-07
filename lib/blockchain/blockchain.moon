@@ -28,13 +28,13 @@ class Blockchain
         return true
 
     --- fixes this Blockchain to be valid
-    fix: =>
+    mine: =>
         for i = 2, #@blocks
             with @blocks[i]
                 correct_prev = @blocks[i - 1]\hash!
                 if .prev_hash != correct_prev
                     .prev_hash = correct_prev
-                    \fix!
+                    \mine!
 
     --- appends data at the end of the Blockchain, may invalidate
     -- @tparam string data the data to append
