@@ -14,15 +14,25 @@ describe 'Blockchain tests', ->
             \mine!
             assert.True \valid!
 
-    it 'detects changed blocks', ->
+    it 'detects changed block data', ->
         with Blockchain!
             for i = 1, 5
                 \append(tostring i)
             \mine!
+            assert.True \valid!
             .blocks[3].data = '4'
             assert.False \valid!
             \mine!
             assert.True \valid!
+
+    it 'detects changed hashes', ->
+        with Blockchain!
+            for i = 1, 5
+                \append(tostring i)
+            \mine!
+            assert.True \valid!
+            .blocks[3].hash = -> '4'
+            assert.False \valid!
 
     it 'can be converted from a string', ->
         bc1 = with Blockchain!

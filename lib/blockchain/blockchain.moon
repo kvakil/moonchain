@@ -22,19 +22,22 @@ class Blockchain
     --- checks if this Blockchain is valid
     -- @treturn bool if this chain is valid
     valid: =>
-        for i = 2, #@blocks
-            if @blocks[i].prev_hash != @blocks[i - 1]\hash!
+        for i, block in ipairs @blocks
+            continue if i == 1 -- genesis
+            if block.prev_hash != @blocks[i - 1]\hash!
+                return false
+            if block\difficulty! < Constants.DIFFICULTY
                 return false
         return true
 
     --- fixes this Blockchain to be valid
     mine: =>
-        for i = 2, #@blocks
-            with @blocks[i]
-                correct_prev = @blocks[i - 1]\hash!
-                if .prev_hash != correct_prev
-                    .prev_hash = correct_prev
-                    \mine!
+        for i, block in ipairs @blocks
+            continue if i == 1 -- genesis
+            correct_prev = @blocks[i - 1]\hash!
+            if block.prev_hash != correct_prev
+                block.prev_hash = correct_prev
+            block\mine!
 
     --- appends data at the end of the Blockchain, may invalidate
     -- @tparam string data the data to append
