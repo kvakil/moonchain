@@ -13,7 +13,7 @@ class Block
     new: (data) =>
         @prev_hash = ''
         @data = data
-        @nonce = -1
+        @nonce = 0
 
     --- creates block from string
     -- (WARNING: ldoc will incorrectly document this)
@@ -37,5 +37,4 @@ class Block
 
     --- finds a nonce such that this block's difficultly is high enough
     mine: =>
-        @nonce = 0
         while @difficulty! < Constants.DIFFICULTY do @nonce += 1
