@@ -18,7 +18,7 @@ describe 'Block tests', ->
     it 'calculates difficulty correctly when it is maximal', ->
         class MockBlock extends Block
             new: => nil
-            hash: => '0000000000000000000000000000000000000000'
+            hash: => "#{'0'\rep 40}"
         diff = MockBlock!\difficulty!
         len = #MockBlock!\hash!
         assert.are.same len, diff
