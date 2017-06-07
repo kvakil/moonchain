@@ -12,7 +12,7 @@ Lua.
 
 ## Documentation
 
-Documentation is [available here](doc).
+Documentation is [available here][doc].
 
 It can also be generated using [ldoc], which can be installed from
 [luarocks]. To build documentation run `ldoc .` in the root directory.
