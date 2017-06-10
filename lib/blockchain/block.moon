@@ -11,17 +11,16 @@ class Block
     --- creates a new block with the given data
     -- @tparam string data the data to use
     new: (data) =>
-        @prev_hash = ''
+        @prev_hash = '0'\rep 40
         @data = data
-        @nonce = 0
+        @nonce = crypto.digest 'sha1', math.random!
 
     --- creates block from string
     -- (WARNING: ldoc will incorrectly document this)
     -- @treturn Block a new block with the same `tostring`
     @from_string: (str) ->
         with Block!
-            .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (.*)%]')
-            .nonce = tonumber .nonce
+            .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (%x*)%]')
 
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
@@ -37,4 +36,5 @@ class Block
 
     --- finds a nonce such that this block's difficultly is high enough
     mine: =>
-        while @difficulty! < Constants.DIFFICULTY do @nonce += 1
+        while @difficulty! < Constants.DIFFICULTY
+            @nonce = crypto.digest 'sha1', @nonce
