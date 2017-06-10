@@ -21,6 +21,13 @@ class Block
     @from_string: (str) ->
         with Block!
             .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (%x*)%]')
+    
+    --- checks if the block is valid
+    -- @treturn bool
+    is_valid: =>
+        if #@prev_hash != 40 then return false
+        if #@nonce != 40 then return false
+        return true
 
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
