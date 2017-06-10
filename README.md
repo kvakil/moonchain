@@ -5,6 +5,8 @@ A minimal-viable blockchain written in MoonScript.
 This currently works, although there several more things I would like
 to implement.
 
+## [Watch a demo!][demo]
+
 ## MoonScript
 
 Moonchain is written in [MoonScript], a language with transpiles to
@@ -23,6 +25,7 @@ Unit and integration tests are done through [busted], which can be
 installed from [luarocks]. To test, run `busted` in the root
 directory.
 
+[demo]: https://asciinema.org/a/0a070f1uyuwkq6an9qcpatre7
 [moonscript]: https://moonscript.org/
 [luarocks]: https://luarocks.org/
 [ldoc]: https://stevedonovan.github.io/ldoc/
