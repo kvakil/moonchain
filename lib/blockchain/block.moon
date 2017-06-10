@@ -22,7 +22,7 @@ class Block
         with Block!
             .prev_hash, .data, .nonce = str\match('Block%[(%x*)|([^|]*)|(%x*)%]')
     
-    valid_hash = (hash) -> #hash == 40 and hash\match('^(%x*)$') != nil
+    valid_hash = (hash) -> hash != nil and #hash == 40 and hash\match('^(%x*)$') != nil
 
     --- checks if the block is valid
     -- @treturn bool
