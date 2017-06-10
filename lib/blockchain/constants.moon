@@ -11,8 +11,9 @@ Block = require 'lib.blockchain.block'
     GENESIS: -- the genesis block
     (class GenesisBlock extends Block
         new: => nil
-        hash: => '0000000000000000000000000000000000000000'
-        prev_hash: nil
+        hash: => '0'\rep 40
+        prev_hash: '0'\rep 40
+        nonce: '0'\rep 40
         data: ''
         __tostring: => 'genesis_block')!
 }
