@@ -61,3 +61,13 @@ describe 'Block tests', ->
         b = with Block 'Test Data'
             .nonce = 'a0b'
         assert.False b\is_valid!
+    
+    it 'knows when the previous hash is invalid (not hex)', ->
+        b = with Block 'Test Data'
+            .prev_hash = 'g'\rep 40
+        assert.False b\is_valid!
+
+    it 'knows when the nonce is invalid (not hex)', ->
+        b = with Block 'Test Data'
+            .nonce = 'g'\rep 40
+        assert.False b\is_valid!
