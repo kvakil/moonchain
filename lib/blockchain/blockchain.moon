@@ -21,7 +21,7 @@ class Blockchain
 
     --- checks if this Blockchain is valid
     -- @treturn bool if this chain is valid
-    valid: =>
+    is_valid: =>
         for i, block in ipairs @blocks
             continue if i == 1 -- genesis
             if not block\is_valid! then return false 

@@ -20,7 +20,7 @@ class Client
     receive: (data) =>
         proposed = Blockchain.from_string data
         if not proposed then return
-        if not proposed\valid! then return
+        if not proposed\is_valid! then return
         if proposed\length! > @blockchain\length!
             @blockchain = proposed
 
