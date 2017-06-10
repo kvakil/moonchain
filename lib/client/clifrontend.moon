@@ -14,6 +14,7 @@ class CLIFrontend
         while true
             line = @get_line!
 
+            return if line == nil
             return if @parse_quit line
             continue if @parse_new_client line
             continue if @parse_print line
