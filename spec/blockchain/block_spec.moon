@@ -43,7 +43,21 @@ describe 'Block tests', ->
 
     it 'preserves all data when converting', ->
         b1 = with Block 'Test Data'
-            .prev_hash = 'deadbeef'
             \mine!
         b2 = Block.from_string(tostring b1)
         assert.are.same b1, b2
+
+    it 'can check validity', ->
+        b = Block 'Test Data'
+        assert.True b\is_valid!
+
+    it 'knows when the previous hash is invalid (too short)', ->
+        b = with Block 'Test Data'
+            .prev_hash = '11deadbeef'
+            \mine!
+        assert.False b\is_valid!
+
+    it 'knows when the nonce is invalid (too short)', ->
+        b = with Block 'Test Data'
+            .nonce = 'a0b'
+        assert.False b\is_valid!
