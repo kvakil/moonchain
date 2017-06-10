@@ -20,7 +20,7 @@ class Block
     -- @treturn Block a new block with the same `tostring`
     @from_string: (str) ->
         with Block!
-            .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (%x*)%]')
+            .prev_hash, .data, .nonce = str\match('Block%[(%x*)|([^|]*)|(%x*)%]')
     
     valid_hash = (hash) -> #hash == 40 and hash\match('^(%x*)$') != nil
 
@@ -34,7 +34,7 @@ class Block
 
     --- returns the string representation of this block
     -- @treturn string the string representation of this block
-    __tostring: => "Block[#{@prev_hash}, #{@data}, #{@nonce}]"
+    __tostring: => "Block[#{@prev_hash}|#{@data}|#{@nonce}]"
 
     --- returns the difficulty of this block
     -- @treturn int the number of leading zeros of this block
