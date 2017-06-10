@@ -22,12 +22,11 @@ class Block
         with Block!
             .prev_hash, .data, .nonce = str\match('Block%[(%x*), ([^,]*), (%x*)%]')
     
+    valid_hash = (hash) -> #hash == 40 and hash\match('^(%x*)$') != nil
+
     --- checks if the block is valid
     -- @treturn bool
-    is_valid: =>
-        if #@prev_hash != 40 then return false
-        if #@nonce != 40 then return false
-        return true
+    is_valid: => valid_hash(@prev_hash) and valid_hash(@nonce)
 
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
