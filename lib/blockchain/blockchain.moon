@@ -24,10 +24,9 @@ class Blockchain
     valid: =>
         for i, block in ipairs @blocks
             continue if i == 1 -- genesis
-            if block.prev_hash != @blocks[i - 1]\hash!
-                return false
-            if block\difficulty! < Constants.DIFFICULTY
-                return false
+            if not block\is_valid! then return false 
+            if block.prev_hash != @blocks[i - 1]\hash! then return false
+            if block\difficulty! < Constants.DIFFICULTY then return false
         return true
 
     --- fixes this Blockchain to be valid
