@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Moonchain</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Moonchain</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/Block.html">Block</a></li>
+  <li><a href="../classes/Blockchain.html">Blockchain</a></li>
+  <li><a href="../classes/Client.html">Client</a></li>
+  <li><strong>CLIFrontend</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/constants.html">constants</a></li>
+  <li><a href="../modules/fauxnetwork.html">fauxnetwork</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>CLIFrontend</code></h1>
+<p>A class for the CLI frontend</p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>License</strong>: MIT</li>
+        <li><strong>Author</strong>: Keyhan Vakil</li>
+    </ul>
+
+
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\new">CLIFrontend\new ()</a></td>
+	<td class="summary">initalize the frontend</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\repl">CLIFrontend\repl ()</a></td>
+	<td class="summary">start a repl loop</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\get_line">CLIFrontend\get_line ()</a></td>
+	<td class="summary">gets a line of input from the client</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\parse_quit">CLIFrontend\parse_quit (line)</a></td>
+	<td class="summary">determine if the input is a quit command</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\parse_new_client">CLIFrontend\parse_new_client (line)</a></td>
+	<td class="summary">determine if the input is a new client and execute it if it is</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\parse_print">CLIFrontend\parse_print (line)</a></td>
+	<td class="summary">determine if the input is a print command and execute it if it is</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\parse_mine">CLIFrontend\parse_mine (line)</a></td>
+	<td class="summary">determine if the input is a mine and execute it if it is</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#CLIFrontend\help">CLIFrontend\help ()</a></td>
+	<td class="summary">prints the help for this frontend</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "CLIFrontend\new"></a>
+    <strong>CLIFrontend\new ()</strong>
+    </dt>
+    <dd>
+    initalize the frontend
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\repl"></a>
+    <strong>CLIFrontend\repl ()</strong>
+    </dt>
+    <dd>
+    start a repl loop
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\get_line"></a>
+    <strong>CLIFrontend\get_line ()</strong>
+    </dt>
+    <dd>
+    gets a line of input from the client
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\parse_quit"></a>
+    <strong>CLIFrontend\parse_quit (line)</strong>
+    </dt>
+    <dd>
+    determine if the input is a quit command
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">line</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\parse_new_client"></a>
+    <strong>CLIFrontend\parse_new_client (line)</strong>
+    </dt>
+    <dd>
+    determine if the input is a new client and execute it if it is
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">line</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the input was a new client command
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\parse_print"></a>
+    <strong>CLIFrontend\parse_print (line)</strong>
+    </dt>
+    <dd>
+    determine if the input is a print command and execute it if it is
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">line</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the input was a print command
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\parse_mine"></a>
+    <strong>CLIFrontend\parse_mine (line)</strong>
+    </dt>
+    <dd>
+    determine if the input is a mine and execute it if it is
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">line</span>
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        true if the input was a mine command
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "CLIFrontend\help"></a>
+    <strong>CLIFrontend\help ()</strong>
+    </dt>
+    <dd>
+    prints the help for this frontend
+
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2017-06-10 12:11:58 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
