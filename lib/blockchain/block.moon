@@ -13,7 +13,7 @@ class Block
     new: (data) =>
         @prev_hash = '0'\rep 40
         @data = data
-        @nonce = crypto.digest 'sha1', math.random!
+        @nonce = hash_internal math.random!
 
     --- creates block from string
     -- (WARNING: ldoc will incorrectly document this)
@@ -21,7 +21,8 @@ class Block
     @from_string: (str) ->
         with Block!
             .prev_hash, .data, .nonce = str\match('Block%[(%x*)|([^|]*)|(%x*)%]')
-    
+
+    hash_internal = (str) -> crypto.digest 'sha1', str
     valid_hash = (hash) -> hash != nil and #hash == 40 and hash\match('^(%x*)$') != nil
 
     --- checks if the block is valid
@@ -30,7 +31,7 @@ class Block
 
     --- returns the SHA1 hash of this block
     -- @treturn string the hex digest of the hash
-    hash: => crypto.digest 'sha1', tostring @
+    hash: => hash_internal tostring @
 
     --- returns the string representation of this block
     -- @treturn string the string representation of this block
@@ -43,4 +44,4 @@ class Block
     --- finds a nonce such that this block's difficultly is high enough
     mine: =>
         while @difficulty! < Constants.DIFFICULTY
-            @nonce = crypto.digest 'sha1', @nonce
+            @nonce = hash_internal @nonce
